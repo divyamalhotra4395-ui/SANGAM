@@ -34,12 +34,13 @@ SANGAM aims to bridge this generation gap through shared learning experiences, d
 - JavaScript (inline interaction)
 - Google Forms for community registration
 
+
 ## How It Works
 
-1. Register – Youth and knowledge partners register.
-2. Connect – Participants are connected based on interests and skills.
-3. Experience – They participate in shared learning activities.
-4. Feedback – Participants share feedback and improve experiences.
+1. Register – Youth and knowledge partners register through the Google Form.
+2. Connect – Participants can be connected based on their interests and skills. Automated matching is a proposed future feature.
+3. Experience – Participants take part in shared learning activities.
+4. Feedback – Participants can share their feedback. An integrated feedback management system is planned for future development.
 
 ## Expected Impact
 
