@@ -1,4 +1,4 @@
-# roots-and-reconnect
+# SANGAM
 A community platform connecting youth with rural knowledge holders through meaningful experiences.
 # 🌱 SANGAM – Where Generations Unite
 
