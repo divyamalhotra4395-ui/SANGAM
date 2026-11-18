@@ -377,6 +377,20 @@ footer {
 }
 
 /* MOBILE ADJUSTMENTS */
+
+.changing-button {
+    background: #f7f5ed;
+    color: #244c35;
+    border: 1px solid #f7f5ed;
+    padding: 14px 28px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    min-width: 220px;
+}
+
 @media (max-width: 600px) {
     .new-hero {
         min-height: 470px;
@@ -403,6 +417,7 @@ footer {
         font-size: 19px;
     }
 }
+
 </style>
 </head>
 
@@ -432,6 +447,7 @@ footer {
 </nav>
 
 <!-- NEW HERO SECTION -->
+
 <div class="new-hero" id="home">
     <h2>Where Generations Unite</h2>
 
@@ -442,10 +458,12 @@ footer {
         and strengthening communities.
     </p>
 
-    <div class="hero-buttons">
-        <button onclick="openForm()">Join the Movement</button>
-        <button class="secondary" onclick="openForm()">Volunteer With Us</button>
-    </div>
+    <button id="changingButton" class="changing-button"
+        onclick="openForm()">
+        Join the Movement
+    </button>
+</div>
+
 </div>
 
 <!-- NEW ABOUT INTRO -->
@@ -818,6 +836,19 @@ function closeFormOutside(event) {
         closeForm();
     }
 }
+const changingButton = document.getElementById("changingButton");
+
+const buttonTexts = [
+    "Join the Movement",
+    "Volunteer With Us"
+];
+
+let buttonIndex = 0;
+
+setInterval(function() {
+    buttonIndex = (buttonIndex + 1) % buttonTexts.length;
+    changingButton.textContent = buttonTexts[buttonIndex];
+}, 3000);
 </script>
 
 </body>
