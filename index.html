@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,494 +7,470 @@
 <title>SANGAM | Where Generations Unite</title>
 
 <style>
+:root {
+  --green: #28543b;
+  --cream: #faf8f2;
+  --gold: #b99a61;
+  --text: #292929;
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f7f5ed;
-    color: #263b2b;
-    line-height: 1.6;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
 }
+
+/* NAVIGATION */
 
 header {
-    background: #244c35;
-    color: white;
-    padding: 25px 20px;
-    text-align: center;
+  background: #ffffff;
+  min-height: 82px;
+  padding: 12px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
-header img {
-    width: 110px;
-    height: 110px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: #f7f5ed;
-    padding: 5px;
-    margin-bottom: 12px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--green);
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
-header h1 {
-    font-size: 30px;
-    letter-spacing: 3px;
+.brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
-header p {
-    font-size: 14px;
-    color: #e5eddf;
+.menu-button {
+  border: none;
+  background: transparent;
+  color: var(--green);
+  font-size: 32px;
+  cursor: pointer;
 }
 
-.sanskrit {
-    font-size: 22px;
-    color: #e5c98b;
-    margin-top: 10px;
-    letter-spacing: 1px;
-    font-weight: 600;
+.menu-panel {
+  display: none;
+  position: absolute;
+  right: 5%;
+  top: 75px;
+  background: white;
+  min-width: 210px;
+  padding: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  border-radius: 8px;
 }
 
-.sanskrit-meaning {
-    font-size: 12px;
-    color: #f7f5ed;
-    font-style: italic;
-    letter-spacing: 0.5px;
-    margin-top: 2px;
+.menu-panel.show {
+  display: block;
 }
 
+.menu-panel a {
+  display: block;
+  padding: 9px 5px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  font-family: Arial, sans-serif;
+}
 
+/* HERO */
 
 .hero {
-    text-align: center;
-    padding: 100px 22px;
-    background:
-        linear-gradient(rgba(20, 45, 30, 0.65), rgba(20, 45, 30, 0.65)),
-        url('sangam-community.jpg') center/cover no-repeat;
-    color: white;
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  min-height: 570px;
+  background:
+    linear-gradient(rgba(20,30,20,0.28), rgba(20,30,20,0.38)),
+    url('sangam-community.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
 }
 
-.hero h2 {
-    font-size: 38px;
-    color: white;
-    margin-bottom: 18px;
+.hero-content {
+  max-width: 850px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 66px);
+  letter-spacing: 3px;
+  margin-bottom: 15px;
 }
 
 .hero p {
-    max-width: 680px;
-    margin: auto;
-    font-size: 17px;
-    line-height: 1.9;
-    color: #f7f5ed;
+  font-size: clamp(17px, 2.5vw, 22px);
+  line-height: 1.6;
+  margin: 0 auto 28px;
+  max-width: 720px;
 }
 
-button {
-    background: #386b47;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 7px;
-    margin-top: 18px;
-    cursor: pointer;
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
+
 .btn {
-    display: inline-block;
-    background: #386b47;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 7px;
-    text-decoration: none;
-    margin-top: 15px;
-}
-section {
-    padding: 30px 18px;
-    max-width: 900px;
-    margin: auto;
+  display: inline-block;
+  padding: 13px 27px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: 1px solid white;
+  transition: 0.3s;
 }
 
-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
+.btn-light {
+  background: #fff;
+  color: var(--green);
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
+.btn-outline {
+  background: transparent;
+  color: white;
 }
 
-.card {
-    background: white;
-    padding: 22px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px #00000012;
-
+.btn:hover {
+  background: var(--gold);
+  color: white;
+  border-color: var(--gold);
 }
 
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 9px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+/* ABOUT US */
+
+.about {
+  text-align: center;
+  padding: 75px 8% 65px;
+  background: #faf8f2;
 }
+
+.large-logo {
+  width: 155px;
+  height: 155px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.about h2 {
+  color: #111111;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 39px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.sanskrit {
+  color: #28543b;
+  font-size: clamp(25px, 4vw, 36px);
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.translation {
+  color: #28543b;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+.about-description {
+  max-width: 950px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #111111;
+}
+
+/* COMMUNITY PHOTOGRAPHS */
+
+.gallery {
+  padding: 65px 7%;
+  background: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  color: #252525;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* REGISTRATION FORM */
+
+.form-section {
+  display: none;
+  padding: 55px 7%;
+  background: #f1eee5;
+  text-align: center;
+}
+
+.form-section.show {
+  display: block;
+}
+
+.form-section h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.form-section p {
+  margin-bottom: 20px;
+  color: #666;
+  font-family: Arial, sans-serif;
+}
+
+.form-frame {
+  width: 100%;
+  max-width: 760px;
+  height: 850px;
+  border: none;
+  background: white;
+  border-radius: 5px;
+}
+
+/* FOOTER */
 
 footer {
-    background: #244c35;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+  background: #fff;
+  padding: 28px 15px;
+  text-align: center;
+  color: #777;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  border-top: 1px solid #eee;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+  header {
+    min-height: 70px;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+
+  .brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero {
+    min-height: 510px;
+  }
+
+  .about {
+    padding: 55px 6%;
+  }
+
+  .large-logo {
+    width: 125px;
+    height: 125px;
+  }
+
+  .about-description {
+    font-size: 16px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid img {
+    height: 240px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION BAR -->
+
 <header>
-    <img
-        src="ab3894dd-28f4-b94f-92b6-ab807a809fab.jpeg"
-        alt="SANGAM Logo"
-        style="width:100px; height:auto; display:block; margin:0 auto 12px;"
-    >
+  <div class="brand">
+    <img src="ab3894dd-28f4-b94f-92b6-ab807a809fab.jpeg" alt="SANGAM Logo">
+    <span>SANGAM</span>
+  </div>
 
-    <h1>SANGAM</h1>
+  <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
+    ☰
+  </button>
 
-    <p class="sanskrit">संगच्छध्वं संवदध्वं</p>
-    <p class="sanskrit-meaning">Move Together, Speak Together.</p>
-
-    <p>Where Wisdom Meets Innovation, and Generations Grow Together.</p>
+  <nav class="menu-panel" id="menuPanel">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About Us</a>
+    <a href="#community" onclick="toggleMenu()">Our Community</a>
+    <a href="#join" onclick="showForm(); toggleMenu()">Join the Movement</a>
+  </nav>
 </header>
 
-<div class="hero">
-    <h2>Where Generations Unite</h2>
+<!-- HERO SECTION -->
 
-<p>
-    A two-way learning platform where young minds gain traditional
-    wisdom from older generations, while empowering elders with
-    digital skills, confidence and modern knowledge. Connecting
-    youth, elderly people, farmers, rural women and artisans through
-    shared learning and meaningful experiences.
-</p>
-    
-    <button onclick="document.getElementById('activities').scrollIntoView({behavior:'smooth'})">
-        Explore Experiences
-    </button>
-</div>
-
-<section id="activities">
-    <h2>Our Experiences</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>💚 Wisdom Circles</h3>
-            <p>
-                Learn from elderly people through life stories,
-                experiences and meaningful conversations.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🌿 Nature Connect</h3>
-            <p>
-                Explore farming, gardening, plants and nature
-                with local farmers.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🎨 Skills of Our Roots</h3>
-            <p>
-                Discover traditional cooking, handicrafts,
-                folk art and local skills from rural communities.
-            </p>
-        </div>
-<div class="card">
-    <h3>📱 Digital Saathi</h3>
-    <p>
-        Youth help elderly people learn smartphone usage,
-        digital payments, internet safety and online services.
-        They also guide them in finding information about
-        government schemes through official sources.
-    </p>
-</div>
-    </div>
-</section>
-
-<section id="about">
-   <h2>About SANGAM</h2>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>SANGAM</h1>
 
     <p>
-        In today's fast-moving world, connections between generations
-        and nature are gradually decreasing. Traditional knowledge,
-        local skills and valuable life experiences are often left
-        unexplored.
+      One Generation's Wisdom. Another Generation's Innovation.
+      A Stronger Tomorrow.
     </p>
 
-    <p style="margin-top:12px;">
-        SANGAM aims to bridge this gap by bringing young
-        people together with elderly individuals, farmers, rural women
-        and artisans through meaningful real-world experiences.
-    </p>
+    <div class="hero-buttons">
+      <button class="btn btn-light" onclick="showForm()">
+        Join the Movement
+      </button>
 
-    <p style="margin-top:12px;">
-        Our initiative promotes intergenerational learning, nature
-        engagement, cultural preservation, social connection and
-        additional earning opportunities for local knowledge partners.
-    </p>
-    
-    <p style="margin-top:12px;">
-    SANGAM believes in two-way learning. Young people gain
-    traditional wisdom, farming practices and cultural skills
-    from older generations, while helping elders develop digital
-    confidence through smartphones, online safety and digital services.
-</p>
-</section>
-<section>
-    <h2>Join Our Community</h2>
-    <p style="text-align:center;">
-    Become a part of SANGAM.
-    Register as a youth participant or knowledge partner.
-</p>
-
-<div style="text-align:center;">
-    <a href="https://forms.gle/DokVTXaQp4bhGtAx7"
-       target="_blank"
-       style="display:inline-block; background:#386b47;
-       color:white; padding:14px 22px; border-radius:7px;
-       text-decoration:none; margin:15px;">
-       Register Now 🌱
-    </a>
-</div>
-
-    
-</section>
-<section id="impact">
-    <h2>Our Impact & Vision</h2>
-<div class="cards">
-
-    <div class="card">
-        <h3>👵 Stronger Social Connections</h3>
-        <p>
-            Creating meaningful connections between generations
-            and reducing loneliness among elderly people.
-        </p>
+      <button class="btn btn-outline" onclick="showForm()">
+        Volunteer With Us
+      </button>
     </div>
-
-    <div class="card">
-        <h3>🌾 Supporting Local Communities</h3>
-        <p>
-            Empowering farmers, rural women and artisans to share their traditional skills while learning digital tools, technology and government schemes from youth.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🎓 Learning Beyond Classrooms</h3>
-        <p>
-            Helping youth gain practical knowledge,
-            life skills and real-world experiences.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🌍 Preserving Our Heritage</h3>
-        <p>
-            Protecting traditional knowledge, cultural values
-            and local skills for future generations.
-        </p>
-    </div>
-
-</div>
-</section>
-<section id="community">
-    <h2>Our Community</h2>
-<p style="text-align:center; margin-bottom:20px;">
-    Everyone has something valuable to share.
-    Join us in building meaningful connections.
-</p>
-
-<div class="cards">
-
-    <div class="card">
-        <h3>👩‍🎓 Youth Participants</h3>
-        <p>
-            Young people eager to learn, explore and
-            connect with different generations.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>👵 Elderly People</h3>
-        <p>
-            Sharing life experiences, wisdom and
-            valuable traditional knowledge.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🌾 Farmers</h3>
-        <p>
-            Sharing agricultural knowledge,
-            farming practices and nature skills.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🧵 Rural Women & Artisans</h3>
-        <p>
-            Showcasing traditional crafts, creativity
-            and local skills.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🤝 Knowledge Partners</h3>
-        <p>
-            Individuals and organisations helping
-            communities learn and grow together.
-        </p>
-    </div>
-
-</div>
+  </div>
 </section>
 
-<section id="why-us">
-    <h2>Why SANGAM?</h2>
-<div class="cards">
+<!-- ABOUT US -->
 
-    <div class="card">
-        <h3>🌱 Learning by Experience</h3>
-        <p>
-            We believe real learning happens beyond
-            classrooms through practical experiences.
-        </p>
-    </div>
+<section class="about" id="about">
 
-    <div class="card">
-        <h3>🤝 Connecting Generations</h3>
-        <p>
-            We bring young minds and experienced
-            generations together to learn from each other.
-        </p>
-    </div>
+  <img
+    class="large-logo"
+    src="ab3894dd-28f4-b94f-92b6-ab807a809fab.jpeg"
+    alt="SANGAM Logo"
+  >
 
-    <div class="card">
-        <h3>🏡 Preserving Traditions</h3>
-        <p>
-            We help preserve local culture, traditional
-            skills and valuable community knowledge.
-        </p>
-    </div>
+  <h2>About Us</h2>
 
-    <div class="card">
-        <h3>💚 Creating Shared Value</h3>
-        <p>
-            We create opportunities for youth and local
-            communities to grow together.
-        </p>
-    </div>
+  <div class="sanskrit">
+    संगच्छध्वं संवदध्वं
+  </div>
 
-</div>
-</section>
-<section id="working-model">
-    <h2>🚀 How Our Platform Works in Real Life</h2>
-<div class="cards">
+  <div class="translation">
+    “Move Together, Speak Together.”
+  </div>
 
-    <div class="card">
-        <h3>1. Register</h3>
-        <p>
-            Youth participants and local knowledge partners
-            can register through our online Google Form.
-        </p>
-    </div>
+  <p class="about-description">
+    Rooted in the timeless wisdom of our traditions, SANGAM brings
+    generations together through shared learning, meaningful connections,
+    and mutual growth. It connects young minds with elders, farmers,
+    rural women, and local artisans, creating a space where traditional
+    knowledge meets modern skills. By preserving our roots while
+    embracing innovation, SANGAM aims to build stronger, more connected
+    and empowered communities.
+  </p>
 
-    <div class="card">
-        <h3>2. Connect</h3>
-        <p>
-            Participants can be connected based on their
-            interests, skills and available activities.
-            Automated matching is a proposed future feature.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>3. Experience</h3>
-        <p>
-            Participants can take part in shared learning
-            activities such as farming, gardening, storytelling
-            and traditional art.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>4. Feedback & Future Opportunities</h3>
-        <p>
-            Participants can share their experiences and
-            suggestions. Integrated feedback systems, rewards
-            and payments for knowledge partners are proposed
-            future enhancements.
-        </p>
-    </div>
-
-</div>
 </section>
 
-<section id="safety">
-    <h2>🛡️ Safety & Trust</h2>
+<!-- COMMUNITY PHOTOGRAPHS -->
 
-    <div class="cards">
+<section class="gallery" id="community">
+  <h2 class="section-title">
+    A Community Without Generational Boundaries
+  </h2>
 
-        <div class="card">
-            <h3>Building Trusted Community Connections</h3>
-            <p>
-                SANGAM encourages meaningful connections between generations through mutual respect, shared learning and active community participation.
-            </p>
-        </div>
+  <div class="gallery-grid">
 
-        <div class="card">
-            <h3>Safe Learning Experiences</h3>
-            <p>
-                Activities will be organised with proper planning,
-                guidance and suitable supervision.
-            </p>
-        </div>
+    <img
+      src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=85"
+      alt="People connecting as a community"
+    >
 
-        <div class="card">
-            <h3>Community Support</h3>
-            <p>
-                We encourage respectful communication,
-                responsible participation and mutual trust.
-            </p>
-        </div>
+    <img
+      src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=900&q=85"
+      alt="Young people learning together"
+    >
 
-    </div>
+    <img
+      src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=85"
+      alt="Community members together"
+    >
+
+  </div>
 </section>
-<section id="contact">
-    <h2>Contact & Get Involved</h2>
-    <p>
-        Be a part of SANGAM. Whether you are a student,
-        an elderly person, a farmer, an artisan, or a knowledge partner,
-        your contribution can make a difference.
-    </p>
 
-    <p>
-        Share your knowledge, learn traditional skills, and help us
-        build stronger communities.
-    </p>
+<!-- REGISTRATION FORM -->
 
-    <a href="https://forms.gle/DokVTXaQp4bhGtAx7" target="_blank" class="btn">
-        Join Our Community
-    </a>
+<section class="form-section" id="join">
+  <h2>Become a Part of SANGAM</h2>
+
+  <p>
+    Join our community and help bring generations closer.
+  </p>
+
+  <!-- Google Form Embed URL will be added here -->
+
+  <iframe
+    class="form-frame"
+    src="PASTE_YOUR_GOOGLE_FORM_EMBED_URL_HERE"
+    title="SANGAM Registration Form"
+    loading="lazy">
+  </iframe>
+
 </section>
+
+<!-- FOOTER -->
+
 <footer>
-   <p>SANGAM | Where Wisdom Meets Innovation 🌱</p>
+  SANGAM | Where Generations Unite
+  <br>
+  One Community. Many Generations. Shared Growth.
 </footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menuPanel").classList.toggle("show");
+}
+
+function showForm() {
+  const form = document.getElementById("join");
+  form.classList.add("show");
+  form.scrollIntoView({ behavior: "smooth" });
+}
+</script>
 
 </body>
 </html>
